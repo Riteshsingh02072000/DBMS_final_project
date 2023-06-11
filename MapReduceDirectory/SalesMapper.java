@@ -9,7 +9,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.*;
 
 public class SalesMapper extends MapReduceBase implements Mapper<LongWritable, Text, Text, DoubleWritable> {
-	// private final static IntWritable one = new IntWritable(1);
 	public static boolean isNumeric(String strNum) {
 		if (strNum == null) {
 			return false;
@@ -27,7 +26,6 @@ public class SalesMapper extends MapReduceBase implements Mapper<LongWritable, T
         String[] parts = line.split(",");
 		if(isNumeric(parts[8] )){
             String month = parts[5];
-            // String year = parts[1];
             double price = Double.parseDouble(parts[8]);
             int weekNights = Integer.parseInt(parts[2]);
             int weekendNights = Integer.parseInt(parts[1]);
